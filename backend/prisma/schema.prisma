@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  password            String
+  name                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  categories   Category[]
+  transactions Transaction[]
+  goals        Goal[]
+  budgets      Budget[]
+}
+
+model Category {
+  id     Int    @id @default(autoincrement())
+  name   String
+  type   String // "income" ou "expense"
+  userId Int
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  transactions Transaction[]
+  budget       Budget?
+
+  @@unique([userId, name])
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  amount      Decimal  @db.Decimal(12, 2)
+  type        String // "income" ou "expense"
+  description String?
+  date        DateTime @default(now())
+  receiptUrl  String?
+  createdAt   DateTime @default(now())
+
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId Int?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+}
+
+model Goal {
+  id            Int       @id @default(autoincrement())
+  name          String
+  targetAmount  Decimal   @db.Decimal(12, 2)
+  currentAmount Decimal   @default(0) @db.Decimal(12, 2)
+  deadline      DateTime?
+  createdAt     DateTime  @default(now())
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Budget {
+  id         Int      @id @default(autoincrement())
+  amount     Decimal  @db.Decimal(12, 2)
+  categoryId Int      @unique
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
