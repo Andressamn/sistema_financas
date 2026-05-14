@@ -165,26 +165,31 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-100 dark:border-gray-700 sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div>
-            <h1 className="text-xl font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
-              <Wallet size={22} />
-              {t('dashboard.title')}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
+              <Wallet size={20} className="shrink-0" />
+              <span className="truncate">{t('dashboard.title')}</span>
             </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{t('dashboard.hello', { name: user?.name })}</p>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">{t('dashboard.hello', { name: user?.name })}</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <LanguageSelector />
             <ThemeToggle />
-            <button onClick={handleLogout} className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition active:scale-95 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5">
-              <LogOut size={14} />
-              {t('dashboard.logout')}
+            <button
+              onClick={handleLogout}
+              aria-label={t('dashboard.logout')}
+              title={t('dashboard.logout')}
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition active:scale-95 p-2 sm:px-3 sm:py-1.5 rounded-lg inline-flex items-center gap-1.5"
+            >
+              <LogOut size={16} />
+              <span className="hidden sm:inline">{t('dashboard.logout')}</span>
             </button>
           </div>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8 space-y-6">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
         {/* Filtro de mês */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -207,12 +212,12 @@ export default function Dashboard() {
         </div>
 
         {/* Atalhos */}
-        <div className="flex flex-wrap gap-3">
-          <button onClick={openNewTransaction} className="btn-primary px-4 py-2.5 inline-flex items-center gap-2"><Plus size={16} /> {t('dashboard.newTransaction')}</button>
-          <button onClick={openNewCategory} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Tag size={16} /> {t('dashboard.newCategory')}</button>
-          <button onClick={() => setShowManageCats(true)} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><FolderOpen size={16} /> {t('dashboard.manageCategories')}</button>
-          <button onClick={openNewGoal} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Target size={16} /> {t('dashboard.newGoal')}</button>
-          <button onClick={openNewBudget} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Briefcase size={16} /> {t('budget.new')}</button>
+        <div className="flex flex-wrap gap-2 sm:gap-3">
+          <button onClick={openNewTransaction} className="btn-primary px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base inline-flex items-center gap-1.5 sm:gap-2"><Plus size={16} /> {t('dashboard.newTransaction')}</button>
+          <button onClick={openNewCategory} className="btn-secondary px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base inline-flex items-center gap-1.5 sm:gap-2"><Tag size={16} /> {t('dashboard.newCategory')}</button>
+          <button onClick={() => setShowManageCats(true)} className="btn-secondary px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base inline-flex items-center gap-1.5 sm:gap-2"><FolderOpen size={16} /> {t('dashboard.manageCategories')}</button>
+          <button onClick={openNewGoal} className="btn-secondary px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base inline-flex items-center gap-1.5 sm:gap-2"><Target size={16} /> {t('dashboard.newGoal')}</button>
+          <button onClick={openNewBudget} className="btn-secondary px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base inline-flex items-center gap-1.5 sm:gap-2"><Briefcase size={16} /> {t('budget.new')}</button>
         </div>
 
         {/* Insights */}

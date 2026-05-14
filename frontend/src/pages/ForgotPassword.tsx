@@ -35,8 +35,8 @@ export default function ForgotPassword() {
         <ThemeToggle />
       </div>
 
-      <div className="card w-full max-w-md p-8 animate-pop">
-        <h1 className="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">
+      <div className="card w-full max-w-md !p-6 sm:!p-8 animate-pop">
+        <h1 className="text-2xl sm:text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">
           {t('auth.resetTitle')}
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mb-6">{t('auth.resetSubtitle')}</p>

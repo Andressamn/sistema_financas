@@ -31,11 +31,11 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md p-6 animate-slideUp border border-gray-100 dark:border-gray-700"
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md p-5 sm:p-6 max-h-[90vh] overflow-y-auto animate-slideUp border border-gray-100 dark:border-gray-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">{title}</h2>
+        <div className="flex justify-between items-center mb-4 gap-2">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-100 truncate">{title}</h2>
           <button
             onClick={onClose}
             aria-label="Fechar"
