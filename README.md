@@ -5,10 +5,6 @@
 [![Live Demo](https://img.shields.io/badge/Live_Demo-▶_Acessar-10b981?style=for-the-badge)](https://sistema-financas-psi.vercel.app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-![Dashboard Preview](docs/screenshots/dashboard.png)
-
-*(Tire um screenshot do dashboard e salve em `docs/screenshots/dashboard.png` para aparecer aqui)*
-
 ---
 
 ## ✨ Funcionalidades
