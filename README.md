@@ -5,6 +5,9 @@
 [![Live Demo](https://img.shields.io/badge/Live_Demo-▶_Acessar-10b981?style=for-the-badge)](https://sistema-financas-psi.vercel.app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
+![Dashboard — visão geral](Docs/Screenshots/dashboard-1.png)
+![Dashboard — orçamentos, metas e próximas features](Docs/Screenshots/dashboard-2.png)
+
 ---
 
 ## ✨ Funcionalidades
