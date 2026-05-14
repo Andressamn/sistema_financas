@@ -11,9 +11,9 @@
     "saving": "Salvando..."
   },
   "auth": {
-    "welcomeBack": "Bem-vindo de volta 👋",
+    "welcomeBack": "Bem-vindo de volta",
     "welcomeBackSub": "Entre na sua conta para continuar",
-    "createAccount": "Crie sua conta 🌱",
+    "createAccount": "Crie sua conta",
     "createAccountSub": "Comece a controlar suas finanças hoje",
     "name": "Nome",
     "namePh": "Seu nome",
@@ -51,7 +51,7 @@
     "missingToken": "Link de redefinição incompleto. Solicite um novo."
   },
   "dashboard": {
-    "title": "💰 Finanças",
+    "title": "Finanças",
     "hello": "Olá, {{name}}",
     "logout": "Sair",
     "balanceMonth": "Saldo do mês",
@@ -70,7 +70,7 @@
     "noExpenseData": "Sem despesas categorizadas pra exibir",
     "whereYouSpend": "Onde você gasta mais",
     "noCategorizedExpenses": "Sem despesas categorizadas no mês",
-    "goals": "🎯 Metas",
+    "goals": "Metas",
     "newShort": "+ Nova",
     "noGoalsYet": "Nenhuma meta criada ainda",
     "achieved": "{{percent}}% atingido",
@@ -84,8 +84,8 @@
   "transaction": {
     "new": "Nova transação",
     "edit": "Editar transação",
-    "expense": "🔻 Despesa",
-    "income": "🔺 Receita",
+    "expense": "Despesa",
+    "income": "Receita",
     "amount": "Valor (R$)",
     "description": "Descrição",
     "descriptionPh": "Ex: Mercado da semana",
@@ -126,7 +126,7 @@
     "newCategory": "Nova categoria de gasto: {{name}} ({{amount}})",
     "spentMore": "Você gastou {{percent}}% mais em {{name}} que no mês passado",
     "spentLess": "Você gastou {{percent}}% menos em {{name}} que no mês passado",
-    "noLongerSpending": "Você parou de gastar com {{name}} este mês 🎉"
+    "noLongerSpending": "Você parou de gastar com {{name}} este mês"
   },
   "category": {
     "new": "Nova categoria",
@@ -138,8 +138,8 @@
     "noCategories": "Nenhuma categoria criada ainda"
   },
   "goal": {
-    "new": "Nova meta 🎯",
-    "edit": "Editar meta 🎯",
+    "new": "Nova meta",
+    "edit": "Editar meta",
     "name": "Nome da meta",
     "namePh": "Ex: Viagem pra praia",
     "target": "Objetivo (R$)",

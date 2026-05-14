@@ -1,3 +1,4 @@
+import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function ThemeToggle() {
@@ -7,9 +8,9 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label="Alternar tema"
       title={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
-      className="p-2 rounded-lg text-xl transition active:scale-90 hover:bg-gray-100 dark:hover:bg-gray-700"
+      className="p-2 rounded-lg transition active:scale-90 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200"
     >
-      {theme === 'dark' ? '☀️' : '🌙'}
+      {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
     </button>
   );
 }

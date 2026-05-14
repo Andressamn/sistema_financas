@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { TrendingDown, TrendingUp, Paperclip } from 'lucide-react';
 import Modal from './Modal';
 import { api } from '../lib/api';
 import { API_URL } from '../lib/config';
@@ -126,23 +127,25 @@ export default function TransactionModal({ open, onClose, onSaved, transaction }
           <button
             type="button"
             onClick={() => setType('expense')}
-            className={`py-2.5 rounded-lg font-medium transition active:scale-95 ${
+            className={`py-2.5 rounded-lg font-medium transition active:scale-95 inline-flex items-center justify-center gap-2 ${
               type === 'expense'
                 ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300 ring-2 ring-red-400'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
+            <TrendingDown size={16} />
             {t('transaction.expense')}
           </button>
           <button
             type="button"
             onClick={() => setType('income')}
-            className={`py-2.5 rounded-lg font-medium transition active:scale-95 ${
+            className={`py-2.5 rounded-lg font-medium transition active:scale-95 inline-flex items-center justify-center gap-2 ${
               type === 'income'
                 ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 ring-2 ring-emerald-400'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
+            <TrendingUp size={16} />
             {t('transaction.income')}
           </button>
         </div>
@@ -180,8 +183,9 @@ export default function TransactionModal({ open, onClose, onSaved, transaction }
 
         {/* Comprovante */}
         <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            📎 {t('transaction.receipt')}
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1.5">
+            <Paperclip size={14} />
+            {t('transaction.receipt')}
           </label>
 
           {existingReceipt && !receiptFile && (

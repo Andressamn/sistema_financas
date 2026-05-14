@@ -11,9 +11,9 @@
     "saving": "Enregistrement..."
   },
   "auth": {
-    "welcomeBack": "Bon retour 👋",
+    "welcomeBack": "Bon retour",
     "welcomeBackSub": "Connectez-vous pour continuer",
-    "createAccount": "Créez votre compte 🌱",
+    "createAccount": "Créez votre compte",
     "createAccountSub": "Commencez à gérer vos finances aujourd'hui",
     "name": "Nom",
     "namePh": "Votre nom",
@@ -51,7 +51,7 @@
     "missingToken": "Lien de réinitialisation incomplet. Demandez-en un nouveau."
   },
   "dashboard": {
-    "title": "💰 Finances",
+    "title": "Finances",
     "hello": "Bonjour, {{name}}",
     "logout": "Déconnexion",
     "balanceMonth": "Solde du mois",
@@ -70,7 +70,7 @@
     "noExpenseData": "Aucune dépense catégorisée à afficher",
     "whereYouSpend": "Où vous dépensez le plus",
     "noCategorizedExpenses": "Aucune dépense catégorisée ce mois-ci",
-    "goals": "🎯 Objectifs",
+    "goals": "Objectifs",
     "newShort": "+ Nouveau",
     "noGoalsYet": "Aucun objectif créé",
     "achieved": "{{percent}}% atteint",
@@ -84,8 +84,8 @@
   "transaction": {
     "new": "Nouvelle transaction",
     "edit": "Modifier la transaction",
-    "expense": "🔻 Dépense",
-    "income": "🔺 Revenu",
+    "expense": "Dépense",
+    "income": "Revenu",
     "amount": "Montant",
     "description": "Description",
     "descriptionPh": "Ex : Courses de la semaine",
@@ -126,7 +126,7 @@
     "newCategory": "Nouvelle catégorie de dépense : {{name}} ({{amount}})",
     "spentMore": "Vous avez dépensé {{percent}}% de plus en {{name}} qu'au mois dernier",
     "spentLess": "Vous avez dépensé {{percent}}% de moins en {{name}} qu'au mois dernier",
-    "noLongerSpending": "Vous avez arrêté de dépenser en {{name}} ce mois-ci 🎉"
+    "noLongerSpending": "Vous avez arrêté de dépenser en {{name}} ce mois-ci"
   },
   "category": {
     "new": "Nouvelle catégorie",
@@ -138,8 +138,8 @@
     "noCategories": "Aucune catégorie créée"
   },
   "goal": {
-    "new": "Nouvel objectif 🎯",
-    "edit": "Modifier l'objectif 🎯",
+    "new": "Nouvel objectif",
+    "edit": "Modifier l'objectif",
     "name": "Nom de l'objectif",
     "namePh": "Ex : Voyage à la plage",
     "target": "Objectif",

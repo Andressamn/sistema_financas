@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Lightbulb, TrendingUp, TrendingDown, Sparkles, PiggyBank, type LucideIcon } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Transaction } from './TransactionModal';
 
@@ -133,7 +134,10 @@ export default function InsightsSection({ currentMonth, currentTransactions, for
 
   return (
     <section className="card">
-      <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">💡 {t('insights.title')}</h2>
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <Lightbulb size={20} className="text-amber-500" />
+        {t('insights.title')}
+      </h2>
       {loading ? (
         <p className="text-gray-500 dark:text-gray-400 text-sm">{t('common.loading')}</p>
       ) : prevTransactions.length === 0 ? (
@@ -143,7 +147,10 @@ export default function InsightsSection({ currentMonth, currentTransactions, for
       ) : (
         <ul className="space-y-2">
           {insights.map((ins, idx) => {
-            const icon = ins.type === 'increase' ? '📈' : ins.type === 'decrease' ? '📉' : ins.type === 'new' ? '🆕' : '💚';
+            const Icon: LucideIcon =
+              ins.type === 'increase' ? TrendingUp :
+              ins.type === 'decrease' ? TrendingDown :
+              ins.type === 'new' ? Sparkles : PiggyBank;
             const color =
               ins.type === 'increase'
                 ? 'text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800'
@@ -151,9 +158,9 @@ export default function InsightsSection({ currentMonth, currentTransactions, for
                 ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800'
                 : 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
             return (
-              <li key={idx} className={`p-3 rounded-lg border text-sm ${color}`}>
-                <span className="mr-2">{icon}</span>
-                {ins.message}
+              <li key={idx} className={`p-3 rounded-lg border text-sm flex items-start gap-2 ${color}`}>
+                <Icon size={16} className="mt-0.5 shrink-0" />
+                <span>{ins.message}</span>
               </li>
             );
           })}

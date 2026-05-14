@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Pencil, Trash2 } from 'lucide-react';
 import Modal from './Modal';
 import { api } from '../lib/api';
 import type { Category } from './CategoryModal';
@@ -46,19 +47,19 @@ export default function CategoriesManageModal({ open, onClose, onEdit, onDelete,
               <div className="flex gap-1">
                 <button
                   onClick={() => onEdit(c)}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90"
+                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-gray-600 dark:text-gray-300"
                   aria-label={t('common.edit')}
                   title={t('common.edit')}
                 >
-                  ✏️
+                  <Pencil size={16} />
                 </button>
                 <button
                   onClick={() => onDelete(c)}
-                  className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90"
+                  className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-red-500 dark:text-red-400"
                   aria-label={t('common.delete')}
                   title={t('common.delete')}
                 >
-                  🗑️
+                  <Trash2 size={16} />
                 </button>
               </div>
             </li>

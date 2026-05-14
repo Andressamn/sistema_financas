@@ -11,9 +11,9 @@
     "saving": "A guardar..."
   },
   "auth": {
-    "welcomeBack": "Bem-vindo de volta 👋",
+    "welcomeBack": "Bem-vindo de volta",
     "welcomeBackSub": "Inicie sessão para continuar",
-    "createAccount": "Crie a sua conta 🌱",
+    "createAccount": "Crie a sua conta",
     "createAccountSub": "Comece a controlar as suas finanças hoje",
     "name": "Nome",
     "namePh": "O seu nome",
@@ -51,7 +51,7 @@
     "missingToken": "Link de reposição incompleto. Solicite um novo."
   },
   "dashboard": {
-    "title": "💰 Finanças",
+    "title": "Finanças",
     "hello": "Olá, {{name}}",
     "logout": "Sair",
     "balanceMonth": "Saldo do mês",
@@ -70,7 +70,7 @@
     "noExpenseData": "Sem despesas categorizadas para exibir",
     "whereYouSpend": "Onde gasta mais",
     "noCategorizedExpenses": "Sem despesas categorizadas no mês",
-    "goals": "🎯 Metas",
+    "goals": "Metas",
     "newShort": "+ Nova",
     "noGoalsYet": "Nenhuma meta criada",
     "achieved": "{{percent}}% atingido",
@@ -84,8 +84,8 @@
   "transaction": {
     "new": "Nova transação",
     "edit": "Editar transação",
-    "expense": "🔻 Despesa",
-    "income": "🔺 Receita",
+    "expense": "Despesa",
+    "income": "Receita",
     "amount": "Valor (€)",
     "description": "Descrição",
     "descriptionPh": "Ex: Compras da semana",
@@ -126,7 +126,7 @@
     "newCategory": "Nova categoria de despesa: {{name}} ({{amount}})",
     "spentMore": "Gastou {{percent}}% mais em {{name}} que no mês passado",
     "spentLess": "Gastou {{percent}}% menos em {{name}} que no mês passado",
-    "noLongerSpending": "Deixou de gastar com {{name}} este mês 🎉"
+    "noLongerSpending": "Deixou de gastar com {{name}} este mês"
   },
   "category": {
     "new": "Nova categoria",
@@ -138,8 +138,8 @@
     "noCategories": "Nenhuma categoria criada"
   },
   "goal": {
-    "new": "Nova meta 🎯",
-    "edit": "Editar meta 🎯",
+    "new": "Nova meta",
+    "edit": "Editar meta",
     "name": "Nome da meta",
     "namePh": "Ex: Viagem à praia",
     "target": "Objetivo (€)",

@@ -1,6 +1,23 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import {
+  Wallet,
+  Plus,
+  Tag,
+  FolderOpen,
+  Target,
+  Briefcase,
+  Pencil,
+  Trash2,
+  Paperclip,
+  Users,
+  Download,
+  CreditCard,
+  Repeat,
+  LogOut,
+  type LucideIcon,
+} from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { api } from '../lib/api';
 import ThemeToggle from '../components/ThemeToggle';
@@ -150,13 +167,17 @@ export default function Dashboard() {
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-100 dark:border-gray-700 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div>
-            <h1 className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{t('dashboard.title')}</h1>
+            <h1 className="text-xl font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
+              <Wallet size={22} />
+              {t('dashboard.title')}
+            </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">{t('dashboard.hello', { name: user?.name })}</p>
           </div>
           <div className="flex items-center gap-2">
             <LanguageSelector />
             <ThemeToggle />
-            <button onClick={handleLogout} className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition active:scale-95 px-3 py-1.5 rounded-lg">
+            <button onClick={handleLogout} className="text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition active:scale-95 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+              <LogOut size={14} />
               {t('dashboard.logout')}
             </button>
           </div>
@@ -187,11 +208,11 @@ export default function Dashboard() {
 
         {/* Atalhos */}
         <div className="flex flex-wrap gap-3">
-          <button onClick={openNewTransaction} className="btn-primary px-4 py-2.5 inline-flex items-center gap-2">➕ {t('dashboard.newTransaction')}</button>
-          <button onClick={openNewCategory} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2">🏷️ {t('dashboard.newCategory')}</button>
-          <button onClick={() => setShowManageCats(true)} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2">🗂️ {t('dashboard.manageCategories')}</button>
-          <button onClick={openNewGoal} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2">🎯 {t('dashboard.newGoal')}</button>
-          <button onClick={openNewBudget} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2">💼 {t('budget.new')}</button>
+          <button onClick={openNewTransaction} className="btn-primary px-4 py-2.5 inline-flex items-center gap-2"><Plus size={16} /> {t('dashboard.newTransaction')}</button>
+          <button onClick={openNewCategory} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Tag size={16} /> {t('dashboard.newCategory')}</button>
+          <button onClick={() => setShowManageCats(true)} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><FolderOpen size={16} /> {t('dashboard.manageCategories')}</button>
+          <button onClick={openNewGoal} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Target size={16} /> {t('dashboard.newGoal')}</button>
+          <button onClick={openNewBudget} className="btn-secondary px-4 py-2.5 inline-flex items-center gap-2"><Briefcase size={16} /> {t('budget.new')}</button>
         </div>
 
         {/* Insights */}
@@ -220,9 +241,9 @@ export default function Dashboard() {
                 {transactions.slice(0, 5).map((tx) => (
                   <li key={tx.id} className="py-3 flex justify-between items-center group">
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-800 dark:text-gray-200 truncate flex items-center gap-1">
+                      <p className="font-medium text-gray-800 dark:text-gray-200 truncate flex items-center gap-1.5">
                         {tx.description || tx.category?.name || t('dashboard.noDescription')}
-                        {tx.receiptUrl && <span title="Tem comprovante" className="text-xs">📎</span>}
+                        {tx.receiptUrl && <Paperclip size={12} className="text-gray-400 shrink-0" />}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {formatDate(tx.date)}
@@ -234,8 +255,8 @@ export default function Dashboard() {
                         {tx.type === 'income' ? '+' : '-'} {formatMoney(Number(tx.amount))}
                       </span>
                       <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition">
-                        <button onClick={() => openEditTransaction(tx)} className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-sm" title={t('common.edit')}>✏️</button>
-                        <button onClick={() => deleteTransaction(tx)} className="p-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-sm" title={t('common.delete')}>🗑️</button>
+                        <button onClick={() => openEditTransaction(tx)} className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-gray-600 dark:text-gray-300" title={t('common.edit')}><Pencil size={14} /></button>
+                        <button onClick={() => deleteTransaction(tx)} className="p-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-red-500 dark:text-red-400" title={t('common.delete')}><Trash2 size={14} /></button>
                       </div>
                     </div>
                   </li>
@@ -289,7 +310,10 @@ export default function Dashboard() {
         {/* Metas */}
         <section className="card">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('dashboard.goals')}</h2>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+              <Target size={20} className="text-emerald-600 dark:text-emerald-400" />
+              {t('dashboard.goals')}
+            </h2>
             <button onClick={openNewGoal} className="text-sm text-emerald-600 dark:text-emerald-400 font-medium hover:underline transition active:scale-95">{t('dashboard.newShort')}</button>
           </div>
           {goals.length === 0 ? (
@@ -307,8 +331,8 @@ export default function Dashboard() {
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-gray-600 dark:text-gray-400">{formatMoney(current)} / {formatMoney(target)}</span>
                         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition">
-                          <button onClick={() => openEditGoal(g)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-sm">✏️</button>
-                          <button onClick={() => deleteGoal(g)} className="p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-sm">🗑️</button>
+                          <button onClick={() => openEditGoal(g)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-gray-600 dark:text-gray-300" title={t('common.edit')}><Pencil size={14} /></button>
+                          <button onClick={() => deleteGoal(g)} className="p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-red-500 dark:text-red-400" title={t('common.delete')}><Trash2 size={14} /></button>
                         </div>
                       </div>
                     </div>
@@ -329,10 +353,10 @@ export default function Dashboard() {
         <section className="card">
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">{t('dashboard.comingSoon')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-            <Feature emoji="👥" label={t('dashboard.sharedWallet')} />
-            <Feature emoji="📥" label="OFX/CSV" />
-            <Feature emoji="💳" label="Cartão de crédito" />
-            <Feature emoji="🔁" label={t('dashboard.recurring')} />
+            <Feature icon={Users} label={t('dashboard.sharedWallet')} />
+            <Feature icon={Download} label="OFX/CSV" />
+            <Feature icon={CreditCard} label="Cartão de crédito" />
+            <Feature icon={Repeat} label={t('dashboard.recurring')} />
           </div>
         </section>
       </main>
@@ -364,10 +388,10 @@ function SummaryCard({ title, value, positive }: { title: string; value: string;
   );
 }
 
-function Feature({ emoji, label }: { emoji: string; label: string }) {
+function Feature({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
     <div className="flex flex-col items-center p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl transition hover:scale-105">
-      <span className="text-2xl mb-1">{emoji}</span>
+      <Icon size={24} className="text-emerald-600 dark:text-emerald-400 mb-2" strokeWidth={1.75} />
       <span className="text-gray-700 dark:text-gray-300 text-center">{label}</span>
     </div>
   );

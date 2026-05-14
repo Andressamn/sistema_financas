@@ -11,9 +11,9 @@
     "saving": "Saving..."
   },
   "auth": {
-    "welcomeBack": "Welcome back 👋",
+    "welcomeBack": "Welcome back",
     "welcomeBackSub": "Sign in to continue",
-    "createAccount": "Create your account 🌱",
+    "createAccount": "Create your account",
     "createAccountSub": "Start tracking your finances today",
     "name": "Name",
     "namePh": "Your name",
@@ -51,7 +51,7 @@
     "missingToken": "Reset link is incomplete. Request a new one."
   },
   "dashboard": {
-    "title": "💰 Finance",
+    "title": "Finance",
     "hello": "Hi, {{name}}",
     "logout": "Sign out",
     "balanceMonth": "Monthly balance",
@@ -70,7 +70,7 @@
     "noExpenseData": "No categorized expenses to show",
     "whereYouSpend": "Where you spend the most",
     "noCategorizedExpenses": "No categorized expenses this month",
-    "goals": "🎯 Goals",
+    "goals": "Goals",
     "newShort": "+ New",
     "noGoalsYet": "No goals yet",
     "achieved": "{{percent}}% achieved",
@@ -84,8 +84,8 @@
   "transaction": {
     "new": "New transaction",
     "edit": "Edit transaction",
-    "expense": "🔻 Expense",
-    "income": "🔺 Income",
+    "expense": "Expense",
+    "income": "Income",
     "amount": "Amount",
     "description": "Description",
     "descriptionPh": "e.g. Weekly groceries",
@@ -126,7 +126,7 @@
     "newCategory": "New spending category: {{name}} ({{amount}})",
     "spentMore": "You spent {{percent}}% more on {{name}} than last month",
     "spentLess": "You spent {{percent}}% less on {{name}} than last month",
-    "noLongerSpending": "You stopped spending on {{name}} this month 🎉"
+    "noLongerSpending": "You stopped spending on {{name}} this month"
   },
   "category": {
     "new": "New category",
@@ -138,8 +138,8 @@
     "noCategories": "No categories yet"
   },
   "goal": {
-    "new": "New goal 🎯",
-    "edit": "Edit goal 🎯",
+    "new": "New goal",
+    "edit": "Edit goal",
     "name": "Goal name",
     "namePh": "e.g. Beach trip",
     "target": "Target",

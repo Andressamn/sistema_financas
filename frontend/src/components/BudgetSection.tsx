@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Briefcase, Pencil, Trash2, AlertOctagon, AlertTriangle } from 'lucide-react';
 import type { Budget } from './BudgetModal';
 import type { Transaction } from './TransactionModal';
 
@@ -26,7 +27,10 @@ export default function BudgetSection({ budgets, transactions, formatMoney, onNe
   return (
     <section className="card">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">💼 {t('budget.title')}</h2>
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+          <Briefcase size={20} className="text-emerald-600 dark:text-emerald-400" />
+          {t('budget.title')}
+        </h2>
         <button
           onClick={onNew}
           className="text-sm text-emerald-600 dark:text-emerald-400 font-medium hover:underline transition active:scale-95"
@@ -62,19 +66,19 @@ export default function BudgetSection({ budgets, transactions, formatMoney, onNe
                     <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition">
                       <button
                         onClick={() => onEdit(b)}
-                        className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-sm"
+                        className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition active:scale-90 text-gray-600 dark:text-gray-300"
                         aria-label={t('common.edit')}
                         title={t('common.edit')}
                       >
-                        ✏️
+                        <Pencil size={14} />
                       </button>
                       <button
                         onClick={() => onDelete(b)}
-                        className="p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-sm"
+                        className="p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition active:scale-90 text-red-500 dark:text-red-400"
                         aria-label={t('common.delete')}
                         title={t('common.delete')}
                       >
-                        🗑️
+                        <Trash2 size={14} />
                       </button>
                     </div>
                   </div>
@@ -86,13 +90,15 @@ export default function BudgetSection({ budgets, transactions, formatMoney, onNe
                   />
                 </div>
                 {isCritical && (
-                  <p className="text-xs text-red-600 dark:text-red-400 mt-1 font-medium">
-                    🚨 {t('budget.alertExceeded', { name: b.category.name })}
+                  <p className="text-xs text-red-600 dark:text-red-400 mt-1 font-medium flex items-center gap-1.5">
+                    <AlertOctagon size={14} />
+                    {t('budget.alertExceeded', { name: b.category.name })}
                   </p>
                 )}
                 {isWarning && (
-                  <p className="text-xs text-yellow-700 dark:text-yellow-400 mt-1 font-medium">
-                    ⚠️ {t('budget.alertWarning', { name: b.category.name, percent: percent.toFixed(0) })}
+                  <p className="text-xs text-yellow-700 dark:text-yellow-400 mt-1 font-medium flex items-center gap-1.5">
+                    <AlertTriangle size={14} />
+                    {t('budget.alertWarning', { name: b.category.name, percent: percent.toFixed(0) })}
                   </p>
                 )}
                 {!isCritical && !isWarning && (
